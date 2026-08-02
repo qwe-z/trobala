@@ -1,0 +1,3 @@
+{
+    "workspace.library": ["path/to/smods-main", "path/to/lovely"]
+}

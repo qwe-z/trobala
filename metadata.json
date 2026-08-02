@@ -1,0 +1,9 @@
+{
+    "id": "tb",
+    "name": "trobala",
+    "author": ["qwe-k"],
+    "description": "",
+    "prefix": "qwektb",
+    "main_file": "main.lua",
+    "version": "0.0.1"
+}
