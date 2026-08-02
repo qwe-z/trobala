@@ -1,15 +1,15 @@
 SMODS.Joker {
-    key = 'woodenstick',
+    key = 'soldiersbroadsword',
     atlas = 'trobala_jokers',
     pos = {x=1,y=0},
     config = {
     extra = {
-      mult = GLOBALS.wooden_stick_mult,
-      durability = GLOBALS.wooden_stick_base_durability,
+      mult = 14,
+      durability = 25
     }
     },
-    rarity = 1,
-    cost = 1,
+    rarity = 3,
+    cost = 8,
     discovered = true,
     in_pool = function(self)
       return true, {allow_duplicates = true}
@@ -20,7 +20,7 @@ SMODS.Joker {
           mult = card.ability.extra.mult,
         }
       end
-      if context.end_of_round and context.main_eval and not context.blueprint then
+      if context.after and context.main_eval and not context.blueprint then
         card.ability.extra.durability = card.ability.extra.durability - 1
         if card.ability.extra.durability <= 0 then
 						G.E_MANAGER:add_event(Event({

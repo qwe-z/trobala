@@ -17,9 +17,6 @@ GLOBALS.inventory_slots = -3
 GLOBALS.inventory_increment = 1
 GLOBALS.stamina = 100
 
-GLOBALS.wooden_stick_base_durability = 3
-GLOBALS.wooden_stick_mult = 10
-
 local jokers_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/jokers")
 for _, file in ipairs(jokers_src) do
     assert(SMODS.load_file("src/jokers/" .. file))()
