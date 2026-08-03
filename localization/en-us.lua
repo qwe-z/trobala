@@ -8,11 +8,19 @@ return {
                 },
             }
         },
+        Enhanced = {
+            m_qwektb_charge = {
+                name = "Charge",
+                text = {
+                    "..."
+                }
+            }
+        },
         Joker = {
             j_qwektb_hero = {
                 name = "The Hero",
                 text = {
-                    "..."
+                    "{C:green}STAMINA: {}{X:green,C:white,E:1,s:1.1}#1#{}"
                 }
             },
             j_qwektb_woodenstick = {
@@ -35,7 +43,7 @@ return {
                 name = "Boomerang",
                 text = {
                     "{X:red,C:white,E:1,s:1.1}+#1#{}",
-                    " ",
+                    "{C:attention,E;1,s:0.8}Retriggers #3# time{}",
                     "{C:green}DURABILITY: {}{X:green,C:white,E:1,s:1.1}#2#{}"
                 }
             },

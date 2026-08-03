@@ -5,7 +5,8 @@ SMODS.Joker {
     config = {
     extra = {
       mult = 4,
-      durability = 18
+      durability = 18,
+      repetitions = 1
     }
     },
     rarity = 2,
@@ -19,7 +20,7 @@ SMODS.Joker {
         and context.other_card == card
         and not context.retrigger_joker then
         return {
-          repetitions = 1,
+          repetitions = card.ability.extra.repetitions,
           message = localize('k_again_ex')
         }
     end
@@ -54,6 +55,7 @@ SMODS.Joker {
         vars = {
           card.ability.extra.mult,
           card.ability.extra.durability,
+          card.ability.extra.repetitions
         }
       }
     end

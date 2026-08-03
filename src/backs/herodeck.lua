@@ -30,6 +30,9 @@ SMODS.Back {
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             func = function()
+                for _, i in ipairs(G.deck.cards) do
+                    i:set_ability(G.P_CENTERS.m_qwektb_charge, true, true)
+                end
                 local hero = SMODS.add_card({
                     key = "j_qwektb_hero",
                 })
@@ -37,6 +40,7 @@ SMODS.Back {
                 G.jokers.config.card_limit = G.jokers.config.card_limit + GLOBALS.inventory_slots
                 return true
             end
+            
         }))   
     end
 }
