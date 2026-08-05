@@ -1,31 +1,21 @@
+GLOBALS = {}
+GLOBALS.inventory_slots = -3
+GLOBALS.inventory_increment = 1
+GLOBALS.stamina = 100
+
 SMODS.Back {
     key = "thehdeck",
-    atlas = "trobala_decks",
+    atlas = "trobala_charge",
     pos = {x=0,y=0},
     apply = function(self)
-        G.P_CENTERS.p_buffoon_normal_1.weight = 0
-        G.P_CENTERS.p_buffoon_jumbo_1.weight = 0
-        G.P_CENTERS.p_buffoon_mega_1.weight = 0
 
-        G.P_CENTERS.p_buffoon_normal_2.weight = 0
-
-        G.P_CENTERS.p_spectral_normal_1.weight = 0
-        G.P_CENTERS.p_spectral_jumbo_1.weight = 0
-        G.P_CENTERS.p_spectral_mega_1.weight = 0
-
-        G.P_CENTERS.p_spectral_normal_2.weight = 0
-
-        G.P_CENTERS.p_standard_normal_1.weight = 0
-        G.P_CENTERS.p_standard_jumbo_1.weight = 0
-        G.P_CENTERS.p_standard_mega_1.weight = 0
-
-        G.P_CENTERS.p_standard_normal_2.weight = 0
-        G.P_CENTERS.p_standard_jumbo_2.weight = 0
-        G.P_CENTERS.p_standard_mega_2.weight = 0
-
-        G.P_CENTERS.p_standard_normal_3.weight = 0
-
-        G.P_CENTERS.p_standard_normal_4.weight = 0
+        SMODS.change_booster_limit(-2)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.GAME.tarot_rate = 0
+                return true
+            end
+        }))
 
         G.E_MANAGER:add_event(Event({
             trigger = "after",
@@ -44,7 +34,6 @@ SMODS.Back {
         }))   
     end
 }
-
 local atp = SMODS.add_to_pool
         function SMODS.add_to_pool(prototype_obj, args)
         local ret = atp(prototype_obj, args)

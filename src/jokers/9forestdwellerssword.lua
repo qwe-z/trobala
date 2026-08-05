@@ -1,15 +1,15 @@
 SMODS.Joker {
-    key = 'soldiersbroadsword',
+    key = 'forestdwellerssword',
     atlas = 'trobala_jokers',
     pos = {x=1,y=0},
     config = {
     extra = {
-      mult = 14,
-      durability = 25
+      mult = 22,
+      durability = 27
     }
     },
-    rarity = 1,
-    cost = 8,
+    rarity = 2,
+    cost = 7,
     discovered = true,
     in_pool = function(self)
       return true, {allow_duplicates = true}

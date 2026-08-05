@@ -4,7 +4,6 @@ SMODS.Joker {
     pos = {x=0,y=0},
     config = {
     extra = {
-        slots = GLOBALS.inventory_slots,
         stamina_limit = 100,
         stamina_gain = 20,
 
@@ -57,14 +56,22 @@ SMODS.Joker {
             end
             if card.ability.extra.cnt * 10 > GLOBALS.stamina then
                 if GLOBALS.stamina == 40 then
-                    GLOBALS.stamina = GLOBALS.stamina - card.ability.extra.fourchargestamina
+                    GLOBALS.stamina = GLOBALS.stamina - card.ability.extra.fivechargestamina
                     return {
-                        mult = card.ability.extra.fourcharge,
-                        message = string.format("-%d STAMINA",card.ability.extra.fourchargestamina),
+                        xmult = card.ability.extra.fivecharge,
+                        message = string.format("-%d STAMINA",card.ability.extra.fivechargestamina),
                         colour = G.C.GREEN
                     }
                 end
                 if GLOBALS.stamina == 30 then
+                    GLOBALS.stamina = GLOBALS.stamina - card.ability.extra.fourchargestamina
+                    return {
+                        xmult = card.ability.extra.fourcharge,
+                        message = string.format("-%d STAMINA",card.ability.extra.fourchargestamina),
+                        colour = G.C.GREEN
+                    }
+                end
+                if GLOBALS.stamina == 20 then
                     GLOBALS.stamina = GLOBALS.stamina - card.ability.extra.threechargestamina
                     return {
                         mult = card.ability.extra.threecharge,
@@ -72,7 +79,7 @@ SMODS.Joker {
                         colour = G.C.GREEN
                     }
                 end
-                if GLOBALS.stamina == 20 then
+                if GLOBALS.stamina == 10 then
                     GLOBALS.stamina = GLOBALS.stamina - card.ability.extra.twochargestamina
                     return {
                         mult = card.ability.extra.twocharge,
@@ -80,7 +87,7 @@ SMODS.Joker {
                         colour = G.C.GREEN
                     }
                 end
-                if GLOBALS.stamina == 10 then
+                if GLOBALS.stamina == 0 then
                     GLOBALS.stamina = GLOBALS.stamina - card.ability.extra.onechargestamina
                     return {
                         mult = card.ability.extra.onecharge,
@@ -92,7 +99,7 @@ SMODS.Joker {
                 if card.ability.extra.cnt * 10 == 50 then
                     GLOBALS.stamina = GLOBALS.stamina - card.ability.extra.fivechargestamina
                     return {
-                        mult = card.ability.extra.fivecharge,
+                        xmult = card.ability.extra.fivecharge,
                         message = string.format("-%d STAMINA",card.ability.extra.fivechargestamina),
                         colour = G.C.GREEN
                     }
@@ -100,7 +107,7 @@ SMODS.Joker {
                 if card.ability.extra.cnt * 10 == 40 then
                     GLOBALS.stamina = GLOBALS.stamina - card.ability.extra.fourchargestamina
                     return {
-                        mult = card.ability.extra.fourcharge,
+                        xmult = card.ability.extra.fourcharge,
                         message = string.format("-%d STAMINA",card.ability.extra.fourchargestamina),
                         colour = G.C.GREEN
                     }

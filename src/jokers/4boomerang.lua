@@ -9,8 +9,8 @@ SMODS.Joker {
       repetitions = 1
     }
     },
-    rarity = 2,
-    cost = 5,
+    rarity = 1,
+    cost = 3,
     discovered = true,
     in_pool = function(self)
       return true, {allow_duplicates = true}

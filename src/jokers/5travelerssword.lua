@@ -8,7 +8,7 @@ SMODS.Joker {
       durability = 20
     }
     },
-    rarity = 2,
+    rarity = 1,
     cost = 6,
     discovered = true,
     in_pool = function(self)
