@@ -4,6 +4,7 @@ SMODS.Joker {
     pos = {x=1,y=0},
     config = {
     extra = {
+      extra_hands = 0,
       mult = 22,
       durability = 27
     }
@@ -39,8 +40,15 @@ SMODS.Joker {
             }      
 				end
       end
+      if not context.blind_defeated and context.after then
+        for _, i in ipairs(G.play.cards) do
+          if SMODS.has_enhancement(i,'m_qwektb_chargedattack2') then
+            card.ability.extra.extra_hands = card.ability.extra.extra_hands + 1
+            ease_hands_played(1)
+          end
+        end
+      end
     end,
-
     loc_vars = function(self, info_queue, card)
       return {
         vars = {
@@ -48,5 +56,11 @@ SMODS.Joker {
           card.ability.extra.durability,
         }
       }
+    end,
+
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.extra_hands
+        ease_hands_played(-card.ability.extra.extra_hands)
+        card.ability.extra.extra_hands = 0
     end
 }

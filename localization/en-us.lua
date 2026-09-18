@@ -1,5 +1,33 @@
 return {
     descriptions = {
+        Tarot = {
+            c_qwektb_combine = {
+                name = "Combine",
+                text = {
+                    "..."
+                }
+            }
+        },
+        Enhanced = {
+            m_qwektb_basicattack = {
+                name = "Basic Attack",
+                text = {
+                    "..."
+                }
+            },
+            m_qwektb_chargedattack1 = {
+                name = "Charged Attack I",
+                text = {
+                    "..."
+                }
+            },
+            m_qwektb_chargedattack2 = {
+                name = "Charged Attack II",
+                text = {
+                    "..."
+                }
+            }
+        },
         Back = {
             b_qwektb_thehdeck = {
                 name = "Deck",
@@ -8,14 +36,7 @@ return {
                 },
             }
         },
-        Enhanced = {
-            m_qwektb_charge = {
-                name = "Charge",
-                text = {
-                    "..."
-                }
-            }
-        },
+        
         Joker = {
             j_qwektb_hero = {
                 name = "The Hero",
@@ -57,6 +78,30 @@ return {
             },
             j_qwektb_soldiersbroadsword = {
                 name = "Soldier's Broadsword",
+                text = {
+                    "{X:red,C:white,E:1,s:1.1}+#1#{}",
+                    " ",
+                    "{C:green}DURABILITY: {}{X:green,C:white,E:1,s:1.1}#2#{}"
+                }
+            },
+            j_qwektb_knightsbroadsword = {
+                name = "Knight's Broadsword",
+                text = {
+                    "{X:red,C:white,E:1,s:1.1}+#1#{}",
+                    " ",
+                    "{C:green}DURABILITY: {}{X:green,C:white,E:1,s:1.1}#2#{}"
+                }
+            },
+            j_qwektb_royalbroadsword = {
+                name = "Royal Broadsword",
+                text = {
+                    "{X:red,C:white,E:1,s:1.1}+#1#{}",
+                    " ",
+                    "{C:green}DURABILITY: {}{X:green,C:white,E:1,s:1.1}#2#{}"
+                }
+            },
+            j_qwektb_forestdwellerssword = {
+                name = "Forest Dwellers Sword",
                 text = {
                     "{X:red,C:white,E:1,s:1.1}+#1#{}",
                     " ",

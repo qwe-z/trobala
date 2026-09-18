@@ -1,14 +1,14 @@
 SMODS.Joker {
     key = 'knightsbroadsword',
     atlas = 'trobala_jokers',
-    pos = {x=1,y=0},
+    pos = {x=0,y=0},
     config = {
     extra = {
       mult = 26,
       durability = 27
     }
     },
-    rarity = 2,
+    rarity = 1,
     cost = 8,
     discovered = true,
     in_pool = function(self)

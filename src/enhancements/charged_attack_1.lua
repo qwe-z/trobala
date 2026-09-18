@@ -1,8 +1,8 @@
 SMODS.Enhancement {
-    key = 'charge',
-    atlas = 'trobala_charge',
+    key = 'chargedattack1',
+    atlas = 'trobala_enhancements',
     pos = {x=0,y=0},
-    config = {bonus=0},
+    config = {bonus=100},
     replace_base_card = true,
     no_rank = true,
     no_suit = true,

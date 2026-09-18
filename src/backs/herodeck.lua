@@ -5,10 +5,10 @@ GLOBALS.stamina = 100
 
 SMODS.Back {
     key = "thehdeck",
-    atlas = "trobala_charge",
+    atlas = "trobala_decks",
     pos = {x=0,y=0},
+    config = {ante_scaling=3},
     apply = function(self)
-
         SMODS.change_booster_limit(-2)
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -16,12 +16,17 @@ SMODS.Back {
                 return true
             end
         }))
-
         G.E_MANAGER:add_event(Event({
             trigger = "after",
             func = function()
+                local cnt = 0
                 for _, i in ipairs(G.deck.cards) do
-                    i:set_ability(G.P_CENTERS.m_qwektb_charge, true, true)
+                    if cnt <= 40 then
+                      i:set_ability(G.P_CENTERS.m_qwektb_basicattack, nil, true)
+                    else 
+                        i:set_ability(G.P_CENTERS.m_qwektb_chargedattack1, nil, true)
+                    end
+                    cnt = cnt + 1
                 end
                 local hero = SMODS.add_card({
                     key = "j_qwektb_hero",
@@ -30,7 +35,6 @@ SMODS.Back {
                 G.jokers.config.card_limit = G.jokers.config.card_limit + GLOBALS.inventory_slots
                 return true
             end
-            
         }))   
     end
 }

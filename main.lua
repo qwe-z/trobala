@@ -13,8 +13,15 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = "trobala_charge",
-    path = "trobala_charge.png",
+    key = "trobala_enhancements",
+    path = "trobala_enhancements.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = "trobala_consumables",
+    path = "trobala_consumables.png",
     px = 71,
     py = 95
 }
@@ -27,6 +34,11 @@ end
 local backs_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/backs")
 for _, file in ipairs(backs_src) do
     assert(SMODS.load_file("src/backs/" .. file))()
+end
+
+local tarots_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/tarots")
+for _, file in ipairs(tarots_src) do
+    assert(SMODS.load_file("src/tarots/" .. file))()
 end
 
 local enhancements_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/enhancements")
