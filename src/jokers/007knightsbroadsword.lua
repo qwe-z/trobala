@@ -1,31 +1,20 @@
 SMODS.Joker {
-    key = 'royalbroadsword',
+    key = 'knightsbroadsword',
     atlas = 'trobala_jokers',
-    pos = {x=2,y=0},
+    pos = {x=0,y=0},
     config = {
     extra = {
-      mult = 36,
-      durability = 36,
-      repetitions = 1,
-      requirement = 50,
+      mult = 26,
+      durability = 27
     }
     },
-    rarity = 3,
-    cost = 10,
+    rarity = 1,
+    cost = 7,
     discovered = true,
     in_pool = function(self)
       return true, {allow_duplicates = true}
     end,
     calculate = function(self, card, context)
-      if context.retrigger_joker_check
-        and context.other_card == card
-        and not context.retrigger_joker 
-        and GLOBALS.stamina > card.ability.extra.requirement then
-        return {
-          repetitions = card.ability.extra.repetitions,
-          message = localize('k_again_ex')
-        }
-    end
       if context.joker_main then
         return {
           mult = card.ability.extra.mult,
@@ -57,8 +46,6 @@ SMODS.Joker {
         vars = {
           card.ability.extra.mult,
           card.ability.extra.durability,
-          card.ability.extra.repetitions,
-          card.ability.extra.chance
         }
       }
     end

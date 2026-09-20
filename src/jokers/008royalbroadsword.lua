@@ -1,20 +1,36 @@
 SMODS.Joker {
-    key = 'woodenstick',
+    key = 'royalbroadsword',
     atlas = 'trobala_jokers',
-    pos = {x=0,y=0},
+    pos = {x=2,y=0},
     config = {
     extra = {
-      mult = 2,
-      durability = 4
+      mult = 36,
+      durability = 36,
+      repetitions = 0,
+      odds = 2,
+      max_repetitions = 10
     }
     },
-    rarity = 1,
-    cost = 0,
+    rarity = 3,
+    cost = 10,
     discovered = true,
     in_pool = function(self)
       return true, {allow_duplicates = true}
     end,
     calculate = function(self, card, context)
+      if context.retrigger_joker_check
+        and context.other_card == card
+        and not context.retrigger_joker 
+        then
+        card.ability.extra.repetitions = 0
+        while SMODS.pseudorandom_probability(card, 'qwektb_royalbroadsword', 1, card.ability.extra.odds) and card.ability.extra.repetitions < card.ability.extra.max_repetitions do
+          card.ability.extra.repetitions = card.ability.extra.repetitions + 1
+        end
+        return {
+          repetitions = card.ability.extra.repetitions,
+          message = localize('k_again_ex')
+        }
+    end
       if context.joker_main then
         return {
           mult = card.ability.extra.mult,
@@ -42,10 +58,13 @@ SMODS.Joker {
     end,
 
     loc_vars = function(self, info_queue, card)
+      local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'qwektb_royalbroadsword')
       return {
         vars = {
           card.ability.extra.mult,
           card.ability.extra.durability,
+          card.ability.extra.odds,
+          card.ability.extra.max_repetitions,
         }
       }
     end

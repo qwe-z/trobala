@@ -1,5 +1,5 @@
 SMODS.Consumable {
-    key = 'combine',
+    key = 'upgrade',
     atlas = "trobala_consumables",
     discovered = true,
     pos = {x=0,y=0},
